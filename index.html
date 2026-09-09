@@ -1,0 +1,584 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casoca LTDA - Informações Corporativas & Serviços</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --accent-gold: #d97706;
+            --accent-gold-hover: #b45309;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .btn-official {
+            background: linear-gradient(135deg, var(--accent-gold), #f59e0b);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(217, 119, 6, 0.3);
+        }
+
+        .btn-official:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(217, 119, 6, 0.5);
+            background: linear-gradient(135deg, #b45309, var(--accent-gold));
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 2rem 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            background: rgba(217, 119, 6, 0.15);
+            color: var(--accent-gold);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Services Section (Top Focus) */
+        .services-section {
+            padding: 60px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(217, 119, 6, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(217, 119, 6, 0.1);
+            color: var(--accent-gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Registry & Data Section */
+        .info-section {
+            padding: 80px 2rem;
+            background: #090d16;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .info-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
+        }
+
+        .info-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .badge-active {
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        /* Contact & Location Section */
+        .contact-section {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item i {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            margin-top: 3px;
+        }
+
+        .contact-item h4 {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-item p, .contact-item a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-gold);
+        }
+
+        .mail-box {
+            background: rgba(217, 119, 6, 0.05);
+            border: 1px dashed var(--accent-gold);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            max-width: 1200px;
+            margin: 40px auto 80px;
+            padding: 0 2rem;
+        }
+
+        .cta-inner {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 1px solid var(--accent-gold);
+            border-radius: 20px;
+            padding: 3.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-inner h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-inner p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050811;
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero {
+                padding-top: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-cubes-stacked"></i> CASOCA<span>.</span>
+            </a>
+            <a href="https://casoca.com.br/" target="_blank" class="btn-official">
+                Acessar Site Oficial <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="hero-badge">Plataforma & Soluções</span>
+        <h1>Inovação e Soluções para Arquitetura e Design</h1>
+        <p>Acelerando processos para profissionais, marcas e fornecedores com eficiência e alta tecnologia.</p>
+        <a href="https://casoca.com.br/" target="_blank" class="btn-official" style="font-size: 1.1rem; padding: 1rem 2rem;">
+            Ir para a Plataforma Casoca <i class="fa-solid fa-chevron-right"></i>
+        </a>
+    </section>
+
+    <!-- Services Section (Top Focus) -->
+    <section class="services-section">
+        <div class="section-title">
+            <h2>Principais Serviços</h2>
+            <p>Conheça as soluções inteligentes desenvolvidas pela Casoca</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-cube"></i>
+                </div>
+                <h3>Blocos 3D & Humanização</h3>
+                <p>Biblioteca completa de produtos reais modelados em 3D para otimizar seus projetos de arquitetura e design de interiores.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-store"></i>
+                </div>
+                <h3>Conexão com Marcas</h3>
+                <p>Vitrine digital que aproxima fabricantes e fornecedores de milhares de especificadores e profissionais em todo o país.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <h3>Especificação Inteligente</h3>
+                <p>Agilidade na seleção e especificação de mobiliários e acabamentos com dados técnicos detalhados e atualizados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registry Information Section -->
+    <section class="info-section">
+        <div class="info-container">
+            <div class="section-title">
+                <h2>Informações de Registro</h2>
+                <p>Dados cadastrais oficiais e transparentes da empresa</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <span class="info-label">Razão Social</span>
+                    <span class="info-value">Casoca LTDA</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Nome Fantasia</span>
+                    <span class="info-value">Casoca</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">CNPJ</span>
+                    <span class="info-value">23.024.154/0001-19</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Inscrição Estadual (MG)</span>
+                    <span class="info-value">002849016.00-90</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Situação Cadastral</span>
+                    <span class="info-value"><span class="badge-active"><i class="fa-solid fa-circle-check"></i> Ativa (desde 10/08/2015)</span></span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Tempo de Abertura</span>
+                    <span class="info-value">11 anos e 30 dias</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Porte</span>
+                    <span class="info-value">Micro Empresa</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Natureza Jurídica</span>
+                    <span class="info-value">Sociedade Empresária Limitada</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Capital Social</span>
+                    <span class="info-value">R$ 20.000,00</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Tipo</span>
+                    <span class="info-value">Matriz</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Opção pelo Simples</span>
+                    <span class="info-value">Não (Exclusão: 01/01/2017 - 31/12/2023)</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Opção pelo MEI</span>
+                    <span class="info-value">Não</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section class="contact-section">
+        <div class="section-title">
+            <h2>Localização & Contato</h2>
+            <p>Entre em contato ou envie uma correspondência</p>
+        </div>
+
+        <div class="contact-grid">
+            <!-- Contact -->
+            <div class="contact-box">
+                <h3 style="font-family: var(--font-heading); margin-bottom: 1.5rem; font-size: 1.4rem;">Canais de Atendimento</h3>
+                
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>E-mail</h4>
+                        <a href="mailto:contato@gaocontabeis.com.br">contato@gaocontabeis.com.br</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Telefones</h4>
+                        <p><a href="tel:3132018699">(31) 3201-8699</a></p>
+                        <p><a href="tel:3141415729">(31) 4141-5729</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location & Correspondence -->
+            <div class="contact-box">
+                <h3 style="font-family: var(--font-heading); margin-bottom: 1.5rem; font-size: 1.4rem;">Endereço & Correspondência</h3>
+                
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Sede</h4>
+                        <p>Avenida Francisco Sales, 329 - Sala 1304</p>
+                        <p>Bairro Floresta - Belo Horizonte/MG</p>
+                        <p>CEP: 30150-221</p>
+                    </div>
+                </div>
+
+                <div class="mail-box">
+                    <h4 style="font-size: 0.9rem; color: var(--accent-gold); margin-bottom: 0.5rem; text-transform: uppercase;">Para Correspondência</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-light); font-weight: 500;">
+                        Casoca Casoca LTDA<br>
+                        Avenida Francisco Sales 329 Sala 1304<br>
+                        Floresta, Belo Horizonte - MG<br>
+                        CEP: 30150-221
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Redirect Banner -->
+    <div class="cta-banner">
+        <div class="cta-inner">
+            <h2>Pronto para conhecer nossos produtos?</h2>
+            <p>Acesse agora o portal oficial da Casoca e descubra todas as nossas soluções para seus projetos.</p>
+            <a href="https://casoca.com.br/" target="_blank" class="btn-official" style="font-size: 1rem; padding: 0.85rem 2rem;">
+                Acessar casoca.com.br <i class="fa-solid fa-external-link"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Casoca LTDA - CNPJ: 23.024.154/0001-19. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
